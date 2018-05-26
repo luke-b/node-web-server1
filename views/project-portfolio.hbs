@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project portfolio list</title>
+  </head>
+  <body>
+    {{>header}}
+
+    {{#each projects}}
+      <p>{{@key}}, {{this}}</p>
+    {{/each}}
+
+    {{>footer}}
+  </body>
+</html>

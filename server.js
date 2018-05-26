@@ -58,6 +58,23 @@ app.get('/about', (req,res) => {
   })
 });
 
+// projects
+
+app.get('/projects', (req,res) => {
+  res.render('project-portfolio.hbs', {
+    pageTitle:'projects',
+    message: 'listing data ...',
+    projects: {
+      project1: 'Google',
+      project1url: 'www.google.com',
+      project2: 'Bing',
+      project2url: 'www.bing.com',
+      project3: 'Hooli search',
+      project3url: 'www.hoolisearch.com'
+    }
+  });
+});
+
 app.get('/bad',  (req,res) => {
   res.send({
     error:1000,
