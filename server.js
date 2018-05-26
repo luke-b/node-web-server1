@@ -3,6 +3,8 @@ const hbs = require('hbs');
 
 const fs = require('fs');
 
+const httpPort = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -32,8 +34,8 @@ app.use((req,res,next) => {
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
-  //return new Date().getFullYear();
-  return 'test';
+  return new Date().getFullYear();
+  //return 'test';
 });
 
 // used in partials/header.hbs on page / with a parram message
@@ -63,6 +65,6 @@ app.get('/bad',  (req,res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is up on port 3000");
+app.listen(httpPort, () => {
+  console.log("Server is up on port " + httpPort);
 });
